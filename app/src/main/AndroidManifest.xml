@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Account_AddActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".Account_UpdateActivity"
             android:exported="false" />
+        <activity
+            android:name=".Account_AddActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".UpdateActivity"
             android:parentActivityName=".MainActivity" />
