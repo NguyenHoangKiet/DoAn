@@ -8,43 +8,31 @@
     android:padding="30dp">
 
     <EditText
-        android:id="@+id/title_input2"
+        android:id="@+id/account_update_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:ems="10"
-        android:hint="Book Title"
+        android:hint="Tài khoản"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/author_input2"
+        android:id="@+id/account_update_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Book Author"
+        android:hint="Mật khẩu"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_input2" />
-
-    <EditText
-        android:id="@+id/pages_input2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Number of pages"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/author_input2" />
+        app:layout_constraintTop_toBottomOf="@+id/account_update_username" />
 
     <Button
-        android:id="@+id/update_button"
+        android:id="@+id/account_update_button"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="40dp"
@@ -53,10 +41,10 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pages_input2" />
+        app:layout_constraintTop_toBottomOf="@+id/account_update_password" />
 
     <Button
-        android:id="@+id/delete_button"
+        android:id="@+id/account_delete_button"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="16dp"
@@ -66,6 +54,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update_button" />
+        app:layout_constraintTop_toBottomOf="@+id/account_update_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

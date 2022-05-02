@@ -55,18 +55,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
         myDB = new MyDatabaseHelper(MainActivity.this);
-        myDB.add_account(
-                "admin0",
-                "000"
-        );
-        myDB.add_account(
-                "admin1",
-                "111"
-        );
-        myDB.add_account(
-                "admin2",
-                "222"
-        );
+//        myDB.add_account(
+//                "admin0",
+//                "000"
+//        );
+//        myDB.add_account(
+//                "admin1",
+//                "111"
+//        );
+//        myDB.add_account(
+//                "admin2",
+//                "222"
+//        );
 
         thamso_tenthamso = new ArrayList<>();
         thamso_giatri = new ArrayList<>();

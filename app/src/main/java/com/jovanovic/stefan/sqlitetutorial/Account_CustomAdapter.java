@@ -58,10 +58,9 @@ public class Account_CustomAdapter extends RecyclerView.Adapter<Account_CustomAd
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, Account_UpdateActivity.class);
-//                intent.putExtra("id", String.valueOf(book_id.get(position)));
-//                intent.putExtra("title", String.valueOf(book_title.get(position)));
-//                intent.putExtra("author", String.valueOf(book_author.get(position)));
-//                intent.putExtra("pages", String.valueOf(book_pages.get(position)));
+                intent.putExtra("id", String.valueOf(account_id.get(position)));
+                intent.putExtra("username", String.valueOf(account_username.get(position)));
+                intent.putExtra("password", String.valueOf(account_password.get(position)));
                 activity.startActivityForResult(intent, 1);
             }
         });
