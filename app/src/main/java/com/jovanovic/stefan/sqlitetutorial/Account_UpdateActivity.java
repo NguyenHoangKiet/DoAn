@@ -62,8 +62,8 @@ public class Account_UpdateActivity extends AppCompatActivity {
                 getIntent().hasExtra("password") ){
             //Getting Data from Intent
             id = getIntent().getStringExtra("id");
-            username = getIntent().getStringExtra("title");
-            password = getIntent().getStringExtra("author");
+            username = getIntent().getStringExtra("username");
+            password = getIntent().getStringExtra("password");
 
             //Setting Intent Data
             account_update_username.setText(username);
@@ -77,17 +77,17 @@ public class Account_UpdateActivity extends AppCompatActivity {
 
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Delete " + username + " ?");
-        builder.setMessage("Are you sure you want to delete " + username + " ?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setTitle("Xóa tài khoản " + username + " ?");
+        builder.setMessage("Bạn chắc chắn muốn xóa tài khoản " + username + " ?");
+        builder.setPositiveButton("Đúng", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(Account_UpdateActivity.this);
-//                myDB.deleteOneRow(id);
+                myDB.delete_one_account(id);
                 finish();
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
