@@ -10,12 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Account_MainActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Quản lý tài khoản"
+            android:exported="false" />
+        <activity
             android:name=".Account_UpdateActivity"
+            android:parentActivityName=".Account_MainActivity"
             android:exported="false" />
         <activity
             android:name=".Account_AddActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Account_MainActivity" />
         <activity
             android:name=".UpdateActivity"
             android:parentActivityName=".MainActivity" />
