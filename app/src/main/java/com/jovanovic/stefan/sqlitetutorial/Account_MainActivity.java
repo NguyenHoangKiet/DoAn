@@ -46,7 +46,7 @@ public class Account_MainActivity extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Account_MainActivity.this, Account_AddActivity.class);
+                Intent intent = new Intent(Account_MainActivity.this, Customer_AddActivity.class);
                 startActivity(intent);
             }
         });
@@ -135,20 +135,20 @@ public class Account_MainActivity extends AppCompatActivity {
 
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Delete All?");
-        builder.setMessage("Are you sure you want to delete all Data?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setTitle("Xóa tất cả?");
+        builder.setMessage("Bạn chắc nhắn muốn xóa tất cả tài khoản?");
+        builder.setPositiveButton("Đúng", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(Account_MainActivity.this);
-//                myDB.deleteAllData();
+                myDB.delete_all_account();
                 //Refresh Activity
                 Intent intent = new Intent(Account_MainActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 

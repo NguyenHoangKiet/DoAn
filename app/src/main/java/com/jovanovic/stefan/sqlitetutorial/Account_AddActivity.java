@@ -24,8 +24,6 @@ public class Account_AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(Account_AddActivity.this);
-//                myDB.addBook(title_input.getText().toString().trim(),
-//                        author_input.getText().toString().trim(),
 //                        Integer.valueOf(pages_input.getText().toString().trim()));
                 myDB.add_account(
                         account_username.getText().toString().trim(),

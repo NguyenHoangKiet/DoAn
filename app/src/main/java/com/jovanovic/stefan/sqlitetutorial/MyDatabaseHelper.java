@@ -134,6 +134,65 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     KEY_CUSADD + " TEXT," +
                     KEY_PHONE + " TEXT" +
                     ")";
+
+    void add_customer(String cusname, String cusadd, String phone){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(KEY_CUSNAME, cusname);
+        cv.put(KEY_CUSADD, cusadd);
+        cv.put(KEY_PHONE, phone);
+
+        long result = db.insert(TABLE_CUSTOMER,null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    Cursor read_all_customer(){
+        String query = "SELECT * FROM " + TABLE_CUSTOMER;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    void updateData_customer(String row_id,String cusname, String cusadd, String phone){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(KEY_CUSNAME, cusname);
+        cv.put(KEY_CUSADD, cusadd);
+        cv.put(KEY_PHONE, phone);
+
+        long result = db.update(TABLE_CUSTOMER, cv, KEY_CUSID+"=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    void delete_one_customer(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_CUSTOMER, KEY_CUSID+"=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Xóa thất bại", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void delete_all_customer(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_CUSTOMER);
+    }
     // endregion
 
     // region table rent
