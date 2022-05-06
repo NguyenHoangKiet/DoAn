@@ -236,6 +236,70 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     KEY_PRICE + " INTEGER," +
                     KEY_AVAILABLE + " BOOLEAN" +
                     ")";
+
+    void add_car(String regno, String brand, String model, Integer price, Boolean available){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(KEY_REGNO, regno);
+        cv.put(KEY_BRAND, brand);
+        cv.put(KEY_MODEL, model);
+        cv.put(KEY_PRICE, price);
+        cv.put(KEY_AVAILABLE, available);
+
+        long result = db.insert(TABLE_CAR,null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    Cursor read_all_car(){
+        String query = "SELECT * FROM " + TABLE_CAR;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    void updateData_car(String row_id, String regno, String brand, String model, Integer price, Boolean available){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(KEY_REGNO, regno);
+        cv.put(KEY_BRAND, brand);
+        cv.put(KEY_MODEL, model);
+        cv.put(KEY_PRICE, price);
+        cv.put(KEY_AVAILABLE, available);
+
+        long result = db.update(TABLE_CAR, cv, KEY_CAR_ID+"=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    void delete_one_car(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_CAR, KEY_CAR_ID+"=?", new String[]{row_id});
+
+        if(result == -1){
+            Toast.makeText(context, "Xóa thất bại", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void delete_all_car(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_CAR);
+    }
     // endregion
 
     MyDatabaseHelper(@Nullable Context context) {
