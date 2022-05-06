@@ -56,12 +56,12 @@ public class Customer_CustomAdapter extends RecyclerView.Adapter<Customer_Custom
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(context, Customer_UpdateActivity.class);
-//                intent.putExtra("cusid", String.valueOf(customer_cusid.get(position)));
-//                intent.putExtra("cusname", String.valueOf(customer_cusname.get(position)));
-//                intent.putExtra("cusadd", String.valueOf(customer_cusadd.get(position)));
-//                intent.putExtra("phone", String.valueOf(customer_phone.get(position)));
-//                activity.startActivityForResult(intent, 1);
+                Intent intent = new Intent(context, Customer_UpdateActivity.class);
+                intent.putExtra("cusid", String.valueOf(customer_cusid.get(position)));
+                intent.putExtra("cusname", String.valueOf(customer_cusname.get(position)));
+                intent.putExtra("cusadd", String.valueOf(customer_cusadd.get(position)));
+                intent.putExtra("phone", String.valueOf(customer_phone.get(position)));
+                activity.startActivityForResult(intent, 1);
             }
         });
 

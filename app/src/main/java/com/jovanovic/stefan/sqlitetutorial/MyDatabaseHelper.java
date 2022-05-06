@@ -182,6 +182,7 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     void delete_one_customer(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_CUSTOMER, KEY_CUSID+"=?", new String[]{row_id});
+      
         if(result == -1){
             Toast.makeText(context, "Xóa thất bại", Toast.LENGTH_SHORT).show();
         }else{

@@ -10,10 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Customer_MainActivity"
+            android:label="Quản lý khách hàng"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Customer_UpdateActivity"
+            android:parentActivityName=".Customer_MainActivity"
             android:exported="false" />
         <activity
             android:name=".Customer_AddActivity"
+            android:label="Quản lý khách hàng"
+            android:parentActivityName=".Customer_MainActivity"
             android:exported="false" />
         <activity
             android:name=".Account_MainActivity"
