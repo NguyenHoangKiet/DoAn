@@ -34,6 +34,7 @@
             android:parentActivityName=".Account_MainActivity" />
         <activity
             android:name=".Account_AddActivity"
+            android:label="Quản lý tài khoản"
             android:exported="false"
             android:parentActivityName=".Account_MainActivity" />
         <activity
