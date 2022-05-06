@@ -46,7 +46,7 @@ public class Account_MainActivity extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Account_MainActivity.this, Customer_AddActivity.class);
+                Intent intent = new Intent(Account_MainActivity.this, Account_AddActivity.class);
                 startActivity(intent);
             }
         });
