@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     CardView accountCard;
     CardView customerCard;
-
+    CardView carCard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         accountCard = findViewById(R.id.accountCard);
         customerCard = findViewById(R.id.customCard);
+        carCard = findViewById(R.id.carCard);
 
         accountCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,5 +56,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        carCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Car_MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
