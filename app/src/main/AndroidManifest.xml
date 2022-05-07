@@ -10,19 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:label="Quản lý xe"
-            android:name=".Car_MainActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".Rent_AddActivity"
             android:exported="false" />
+        <activity
+            android:name=".Car_MainActivity"
+            android:exported="false"
+            android:label="Quản lý xe"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Car_UpdateActivity"
-            android:parentActivityName=".Car_MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Car_MainActivity" />
         <activity
-            android:label="Quản lý xe"
             android:name=".Car_AddActivity"
-            android:parentActivityName=".Car_MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Quản lý xe"
+            android:parentActivityName=".Car_MainActivity" />
         <activity
             android:name=".Customer_MainActivity"
             android:exported="false"

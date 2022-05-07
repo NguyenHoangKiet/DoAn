@@ -50,7 +50,7 @@ public class Car_MainActivity extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Car_MainActivity.this, Car_AddActivity.class);
+                Intent intent = new Intent(Car_MainActivity.this, Rent_AddActivity.class);
                 startActivity(intent);
             }
         });

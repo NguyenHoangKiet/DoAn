@@ -6,8 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.DatePicker;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
+
+import java.util.Date;
 
 class MyDatabaseHelper extends SQLiteOpenHelper {
 
@@ -211,10 +214,74 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     KEY_RENTID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     KEY_CARREG+ " TEXT," +
                     KEY_RENT_CUSID+ " INTEGER," +
-                    KEY_RENTALDATE+ " DATE," +
-                    KEY_RETURNDATE+ " DATE," +
+                    KEY_RENTALDATE+ " DATETIME," +
+                    KEY_RETURNDATE+ " DATETIME," +
                     KEY_FEES+ " INTEGER" +
                     ")";
+
+    void add_rent(String carreg, Integer rent_cusid,String rentaldate,String renturndate, Integer fees){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(KEY_CARREG,carreg);
+        cv.put(KEY_RENT_CUSID,rent_cusid);
+        cv.put(KEY_RENTALDATE,rentaldate);
+        cv.put(KEY_RETURNDATE,renturndate);
+        cv.put(KEY_FEES,fees);
+
+        long result = db.insert(TABLE_RENT,null, cv);
+        if(result == -1){
+            Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    Cursor read_all_rent(){
+        String query = "SELECT * FROM " + TABLE_RENT;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
+    void updateData_rent(String row_id,String carreg, Integer rent_cusid,String rentaldate,String renturndate, Integer fees){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(KEY_CARREG,carreg);
+        cv.put(KEY_RENT_CUSID,rent_cusid);
+        cv.put(KEY_RENTALDATE,rentaldate);
+        cv.put(KEY_RETURNDATE,renturndate);
+        cv.put(KEY_FEES,fees);
+
+        long result = db.update(TABLE_RENT, cv, KEY_RENTID+"=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    void delete_one_rent(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_RENT, KEY_RENTID+"=?", new String[]{row_id});
+
+        if(result == -1){
+            Toast.makeText(context, "Xóa thất bại", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void delete_all_rent(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_RENT);
+    }
     // endregion
 
     // region table car
