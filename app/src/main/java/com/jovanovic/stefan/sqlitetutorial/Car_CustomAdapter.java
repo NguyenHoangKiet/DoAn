@@ -3,6 +3,7 @@ package com.jovanovic.stefan.sqlitetutorial;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,18 +59,18 @@ public class Car_CustomAdapter extends RecyclerView.Adapter<Car_CustomAdapter.My
     @Override
     public void onBindViewHolder(@NonNull final Car_CustomAdapter.MyViewHolder holder, final int position) {
         holder.car_row_carid.setText(String.valueOf(car_car_id.get(position)));
-        holder.car_row_regno.setText(String.valueOf(car_regno.get(position)) + " (Biển số xe)");
+        holder.car_row_regno.setText(String.valueOf(car_regno.get(position)) );
         holder.car_row_brand.setText(String.valueOf(car_brand.get(position)) + " (Hãng xe)");
         holder.car_row_model.setText(String.valueOf(car_model.get(position)) + " (Kiểu xe)");
-        holder.car_row_price.setText(String.valueOf(car_price.get(position)) + " (Giá)");
-
-        holder.car_row_available.setText(String.valueOf(car_available.get(position)));
+        holder.car_row_price.setText(String.valueOf(car_price.get(position)) + " VNĐ/Ngày");
 
         if (String.valueOf(car_available.get(position)).equals("1")){
             holder.car_row_available.setText("Còn trống");
+            holder.car_row_available.setTextColor(Color.GREEN);
         }
         else {
             holder.car_row_available.setText("Đã cho thuê");
+            holder.car_row_available.setTextColor(Color.RED);
         }
 
         //Recyclerview onClickListener
