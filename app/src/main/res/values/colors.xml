@@ -11,5 +11,6 @@
     <color name="button">#feeaa5</color>
     <color name="text_button">#ebba46</color>
     <color name="text">#83aef2</color>
-
+    <color name="button_delete">#febad6</color>
+    <color name="text_button_delete">#eb7d94</color>
 </resources>

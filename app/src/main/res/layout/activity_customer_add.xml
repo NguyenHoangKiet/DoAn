@@ -11,7 +11,7 @@
         android:id="@+id/customer_add_activity_cusname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="Tên khách hàng"
         android:inputType="textPersonName"
@@ -44,15 +44,18 @@
         app:layout_constraintTop_toBottomOf="@+id/customer_add_activity_cusadd" />
 
     <Button
-        android:id="@+id/customer_add_activity_add_button"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="40dp"
-        android:text="Thêm"
-        android:textSize="20sp"
         android:textAllCaps="false"
+        android:layout_width="240dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/text_button"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@drawable/style_button"
+        android:id="@+id/customer_add_activity_add_button"
+        android:text="Thêm"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customer_add_activity_phone" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
