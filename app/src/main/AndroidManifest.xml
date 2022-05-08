@@ -15,7 +15,7 @@
         <activity
             android:name=".Car_MainActivity"
             android:exported="false"
-            android:label="Quản lý xe"
+            android:label="Quản Lý Xe"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Car_UpdateActivity"
@@ -24,12 +24,12 @@
         <activity
             android:name=".Car_AddActivity"
             android:exported="false"
-            android:label="Quản lý xe"
+            android:label="Quản Lý Xe"
             android:parentActivityName=".Car_MainActivity" />
         <activity
             android:name=".Customer_MainActivity"
             android:exported="false"
-            android:label="Quản lý khách hàng"
+            android:label="Quản Lý Khách Hàng"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Customer_UpdateActivity"
@@ -38,12 +38,12 @@
         <activity
             android:name=".Customer_AddActivity"
             android:exported="false"
-            android:label="Quản lý khách hàng"
+            android:label="Quản Lý Khách Hàng"
             android:parentActivityName=".Customer_MainActivity" />
         <activity
             android:name=".Account_MainActivity"
             android:exported="false"
-            android:label="Quản lý tài khoản"
+            android:label="Quản Lý Tài Khoản"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Account_UpdateActivity"
@@ -52,7 +52,7 @@
         <activity
             android:name=".Account_AddActivity"
             android:exported="false"
-            android:label="Quản lý tài khoản"
+            android:label="Quản Lý Tài Khoản"
             android:parentActivityName=".Account_MainActivity" />
         <activity
             android:name=".UpdateActivity"
@@ -63,7 +63,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
-            android:label="Quản lý cho thuê xe">
+            android:label="Quản Lý Thuê Xe">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

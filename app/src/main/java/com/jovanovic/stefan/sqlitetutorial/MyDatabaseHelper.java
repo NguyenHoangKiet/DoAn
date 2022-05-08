@@ -10,7 +10,9 @@ import android.widget.DatePicker;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 class MyDatabaseHelper extends SQLiteOpenHelper {
 
@@ -366,6 +368,30 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     void delete_all_car(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_CAR);
+    }
+
+    public List<String> get_all_car_spinner(){
+        List<String> list = new ArrayList<String>();
+
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_CAR;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);//selectQuery,selectedArguments
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(1) + "_" +
+                        cursor.getString(2)+ "_"+
+                        cursor.getString(3));//adding 2nd column data
+            } while (cursor.moveToNext());
+        }
+        // closing connection
+        cursor.close();
+        db.close();
+        // returning lables
+        return list;
     }
     // endregion
 

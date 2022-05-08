@@ -13,13 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:ems="10"
-        android:text="Khách hàng :"
+        android:text="Xe :"
+
         android:textSize="18sp"
-        android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
     <Spinner
         android:id="@+id/rent_add_activity_regno_spinner"
         android:layout_width="match_parent"
@@ -34,15 +34,13 @@
         android:id="@+id/rent_add_activity1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:text="Xe :"
+        android:text="Khách hàng :"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_regno_spinner"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_regno_spinner" />
     <Spinner
         android:id="@+id/rent_add_activity_cusid_spinner"
         android:layout_width="match_parent"
@@ -54,44 +52,66 @@
 
     <EditText
         android:id="@+id/rent_add_activity_rentaldate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="236dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Ngày thuê"
         android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_cusid_spinner" />
+
     <Button
+        android:textAllCaps="false"
         android:id="@+id/rent_add_activity_rentaldate_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chọn ngày thuê"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_rentaldate"></Button>
+        android:layout_width="98dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/style_button"
+        android:gravity="center"
+        android:text="  Chọn ngày"
+        android:textAlignment="center"
+        android:textColor="@color/text_button"
+        android:textStyle="normal|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_cusid_spinner"></Button>
+
     <EditText
         android:id="@+id/rent_add_activity_returndate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="236dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Ngày trả"
         android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_rentaldate_button" />
+        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_rentaldate" />
+
     <Button
+        android:textAllCaps="false"
         android:id="@+id/rent_add_activity_returndate_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chọn ngày trả"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_returndate"></Button>
+        android:layout_width="98dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/style_button"
+        android:gravity="center"
+        android:text="  Chọn ngày"
+        android:textAlignment="center"
+        android:textColor="@color/text_button"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_rentaldate_button"></Button>
+
     <EditText
         android:id="@+id/rent_add_activity_fees"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Giá thuê"
         android:inputType="number"
@@ -101,13 +121,17 @@
 
     <Button
         android:id="@+id/rent_add_activity_add_button"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="240dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/style_button"
         android:text="Thêm"
-        android:textSize="20sp"
         android:textAllCaps="false"
+        android:textColor="@color/text_button"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_fees" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
