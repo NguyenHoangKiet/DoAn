@@ -10,9 +10,11 @@ import android.widget.DatePicker;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 class MyDatabaseHelper extends SQLiteOpenHelper {
 
@@ -263,10 +265,20 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     KEY_RENTID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     KEY_CARREG+ " TEXT," +
                     KEY_RENT_CUSID+ " INTEGER," +
-                    KEY_RENTALDATE+ " DATETIME," +
-                    KEY_RETURNDATE+ " DATETIME," +
+                    KEY_RENTALDATE+ " DATE," +
+                    KEY_RETURNDATE+ " DATE," +
                     KEY_FEES+ " INTEGER" +
                     ")";
+
+    private String getDateTime(String inp) {
+        String parts[] = inp.split("/");
+        String day =  parts[0];
+        String month =  parts[1];
+        String year=  parts[2];
+        if ( day.length() == 1) day = "0" + day;
+        if ( month.length() == 1) month = "0" + month;
+        return year + "-" + month + "-" + day;
+    }
 
     void add_rent(String carreg, Integer rent_cusid,String rentaldate,String renturndate, Integer fees){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -274,8 +286,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
         cv.put(KEY_CARREG,carreg);
         cv.put(KEY_RENT_CUSID,rent_cusid);
-        cv.put(KEY_RENTALDATE,rentaldate);
-        cv.put(KEY_RETURNDATE,renturndate);
+        cv.put(KEY_RENTALDATE,getDateTime(rentaldate));
+        cv.put(KEY_RETURNDATE,getDateTime(renturndate));
         cv.put(KEY_FEES,fees);
 
         long result = db.insert(TABLE_RENT,null, cv);
@@ -284,17 +296,6 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         }else {
             Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    Cursor read_all_rent(){
-        String query = "SELECT * FROM " + TABLE_RENT;
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = null;
-        if(db != null){
-            cursor = db.rawQuery(query, null);
-        }
-        return cursor;
     }
 
     void updateData_rent(String row_id,String carreg, Integer rent_cusid,String rentaldate,String renturndate, Integer fees){
@@ -369,6 +370,25 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         }else {
             Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    Cursor  read_car_fees_with_regno(String regno){
+
+        String query = "SELECT * FROM " + TABLE_CAR + " WHERE " + KEY_REGNO + "='" + regno.trim() + "'";
+//        String query = "select * from Car where Regno='1'";
+//        String query = "SELECT * FROM " + TABLE_CAR;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Toast.makeText(context, query, Toast.LENGTH_SHORT).show();
+
+        int result = 1;
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+//            Toast.makeText(context, cursor.getCount(), Toast.LENGTH_SHORT).show();
+        }
+//        return Integer.valueOf(cursor.getString(4));
+        return cursor;
     }
 
     Cursor read_all_car(){

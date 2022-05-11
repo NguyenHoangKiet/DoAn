@@ -1,10 +1,14 @@
 package com.jovanovic.stefan.sqlitetutorial;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,10 +19,19 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.text.DateFormat;
 
 public class Rent_AddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
 
     Spinner rent_add_activity_regno_spinner;
     Spinner rent_add_activity_cusid_spinner;
@@ -29,8 +42,13 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
     Button rent_add_activity_returndate_button;
     Button rent_add_activity_add_button;
     List<String> list_regno , list_cusid;
-    String regno, cusid;
+    String regno = "", cusid;
     DatePickerDialog.OnDateSetListener setListener;
+    DatePickerDialog.OnDateSetListener setListener_return;
+    Boolean regno_check = false;
+    Boolean rental_check = false;
+    Boolean return_check = false;
+    MyDatabaseHelper db = new MyDatabaseHelper(Rent_AddActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +76,8 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
                         Toast.LENGTH_LONG).show();
 
                 regno = list_regno.get(position);
+               regno_check = true;
+                caculator_fees();
             }
 
             @Override
@@ -102,6 +122,7 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
 
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
+
             }
         });
 
@@ -112,14 +133,129 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
                 String date = day + "/"+month+"/"+year;
 
                 rent_add_activity_rentaldate.setText(date);
+                rental_check = true;
+                caculator_fees();
             }
         };
 
+        rent_add_activity_returndate_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        Rent_AddActivity.this, android.R.style.Theme_Holo_Dialog_NoActionBar_MinWidth,
+                        setListener_return,year_1,month_1,day_1);
+
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+
+            }
+        });
+
+        setListener_return = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                String date = day + "/"+month+"/"+year;
+
+                rent_add_activity_returndate.setText(date);
+                return_check = true;
+                caculator_fees();
+            }
+        };
+
+        rent_add_activity_add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String carreg;
+                Integer rent_cusid;
+                String rentaldate;
+                String returndate;
+                Integer fees;
+
+//                carreg = "BM02";
+//                rent_cusid = 2;
+//                rentaldate = "11/5/2022";
+//                returndate = "11/5/2022";
+//                fees = 1000000;
+
+
+
+                carreg = regno;
+                rent_cusid = Integer.valueOf(cusid);
+                rentaldate = rent_add_activity_rentaldate.getText().toString().trim();
+                returndate = rent_add_activity_returndate.getText().toString().trim();
+                fees = Integer.valueOf(rent_add_activity_fees.getText().toString().trim());
+
+                db.add_rent(
+                        carreg,
+                        rent_cusid,
+                        rentaldate,
+                        returndate,
+                        fees
+                );
+            }
+        });
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void caculator_fees(){
+
+        rent_add_activity_fees.setText("Return date choosen " + regno_check + " " + return_check + " " + rental_check);
+
+        if (regno_check == true && return_check == true && rental_check == true) {
+
+
+            String rental_string = rent_add_activity_rentaldate.getText().toString().trim();
+            String return_string = rent_add_activity_returndate.getText().toString().trim();
+
+            String rental_date[] = rental_string.split("/");
+            String return_date[] = return_string.split("/");
+
+
+            Cursor cursor = db.read_car_fees_with_regno(regno);
+
+            int basic_fees = 0;
+
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    basic_fees = Integer.valueOf(cursor.getString(4));
+                }
+            }
+
+            String rental_day = rental_date[0];
+            String rental_month = rental_date[1];
+            String rental_year = rental_date[2];
+
+            String return_day = return_date[0];
+            String return_month = return_date[1];
+            String return_year = return_date[2];
+
+            if (rental_day.length() == 1) rental_day = "0" + rental_day;
+            if (rental_month.length() == 1) rental_month = "0" + rental_month;
+
+            if (return_day.length() == 1) return_day = "0" + return_day;
+            if (return_month.length() == 1) return_month = "0" + return_month;
+
+            DateTimeFormatter myFormat =  DateTimeFormatter.ofPattern("dd MM yyyy");
+
+            String inputString1 = rental_day + " " + rental_month + " " + rental_year;
+            String inputString2 = return_day + " " + return_month + " " + return_year;
+                LocalDate date1 = LocalDate.parse(inputString1,myFormat);
+                LocalDate date2 = LocalDate.parse(inputString2,myFormat);
+
+                long diff = ChronoUnit.DAYS.between(date1,date2);
+
+
+            int res = (int)diff * basic_fees ;
+
+            if (res < 0) res = 0;
+
+            rent_add_activity_fees.setText(String.valueOf(res));
+//            rent_add_activity_fees.setText(rental_date[0] + "+" + return_date[0]);
+        }
+    }
     private void load_car_spinner_data() {
-        MyDatabaseHelper db = new MyDatabaseHelper(Rent_AddActivity.this);
         List<String> labels = db.get_all_car_spinner();
 
         list_regno = db.get_all_car_regno_spinner();
@@ -135,7 +271,6 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
     }
 
     private void load_customer_spinner_data() {
-        MyDatabaseHelper db = new MyDatabaseHelper(Rent_AddActivity.this);
         List<String> labels = db.get_all_customer_spinner();
 
         list_cusid = db.get_all_customer_id_spinner();
