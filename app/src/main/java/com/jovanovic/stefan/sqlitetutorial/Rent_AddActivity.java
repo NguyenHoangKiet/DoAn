@@ -177,9 +177,6 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
 //                rentaldate = "11/5/2022";
 //                returndate = "11/5/2022";
 //                fees = 1000000;
-
-
-
                 carreg = regno;
                 rent_cusid = Integer.valueOf(cusid);
                 rentaldate = rent_add_activity_rentaldate.getText().toString().trim();
@@ -200,8 +197,6 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void caculator_fees(){
-
-        rent_add_activity_fees.setText("Return date choosen " + regno_check + " " + return_check + " " + rental_check);
 
         if (regno_check == true && return_check == true && rental_check == true) {
 

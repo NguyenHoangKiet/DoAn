@@ -298,6 +298,17 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    Cursor read_all_rent(){
+        String query = "SELECT * FROM " + TABLE_RENT;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
     void updateData_rent(String row_id,String carreg, Integer rent_cusid,String rentaldate,String renturndate, Integer fees){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -375,19 +386,13 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
     Cursor  read_car_fees_with_regno(String regno){
 
         String query = "SELECT * FROM " + TABLE_CAR + " WHERE " + KEY_REGNO + "='" + regno.trim() + "'";
-//        String query = "select * from Car where Regno='1'";
-//        String query = "SELECT * FROM " + TABLE_CAR;
         SQLiteDatabase db = this.getReadableDatabase();
-
-        Toast.makeText(context, query, Toast.LENGTH_SHORT).show();
 
         int result = 1;
         Cursor cursor = null;
         if(db != null){
             cursor = db.rawQuery(query, null);
-//            Toast.makeText(context, cursor.getCount(), Toast.LENGTH_SHORT).show();
         }
-//        return Integer.valueOf(cursor.getString(4));
         return cursor;
     }
 
