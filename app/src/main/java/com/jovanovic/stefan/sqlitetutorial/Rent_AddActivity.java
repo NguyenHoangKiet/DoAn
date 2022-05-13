@@ -41,11 +41,13 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
     Button rent_add_activity_rentaldate_button;
     Button rent_add_activity_returndate_button;
     Button rent_add_activity_add_button;
+    Button rent_add_activity_fees_button;
     List<String> list_regno , list_cusid;
     String regno = "", cusid;
     DatePickerDialog.OnDateSetListener setListener;
     DatePickerDialog.OnDateSetListener setListener_return;
     Boolean regno_check = false;
+    Boolean cusid_check = false;
     Boolean rental_check = false;
     Boolean return_check = false;
     MyDatabaseHelper db = new MyDatabaseHelper(Rent_AddActivity.this);
@@ -62,6 +64,7 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
         rent_add_activity_fees = findViewById(R.id.rent_add_activity_fees);
         rent_add_activity_rentaldate_button = findViewById(R.id.rent_add_activity_rentaldate_button);
         rent_add_activity_returndate_button = findViewById(R.id.rent_add_activity_returndate_button);
+        rent_add_activity_fees_button = findViewById(R.id.rent_add_activity_fees_button);
         rent_add_activity_add_button = findViewById(R.id.rent_add_activity_add_button);
 
         rent_add_activity_regno_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -77,7 +80,7 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
 
                 regno = list_regno.get(position);
                regno_check = true;
-                caculator_fees();
+//                caculator_fees();
             }
 
             @Override
@@ -98,6 +101,8 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
                         Toast.LENGTH_LONG).show();
 
                 cusid = list_cusid.get(position);
+                cusid_check = true;
+//                caculator_fees();
             }
 
             @Override
@@ -134,7 +139,7 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
 
                 rent_add_activity_rentaldate.setText(date);
                 rental_check = true;
-                caculator_fees();
+//                caculator_fees();
             }
         };
 
@@ -159,9 +164,16 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
 
                 rent_add_activity_returndate.setText(date);
                 return_check = true;
-                caculator_fees();
+//                caculator_fees();
             }
         };
+
+        rent_add_activity_fees_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                caculator_fees();
+            }
+        });
 
         rent_add_activity_add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -198,7 +210,7 @@ public class Rent_AddActivity extends AppCompatActivity implements AdapterView.O
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void caculator_fees(){
 
-        if (regno_check == true && return_check == true && rental_check == true) {
+        if (regno_check == true && cusid_check == true && return_check == true && rental_check == true) {
 
 
             String rental_string = rent_add_activity_rentaldate.getText().toString().trim();

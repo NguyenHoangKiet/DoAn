@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Rent_AddActivity"
+    tools:context=".Rent_UpdateActivity"
     android:padding="30dp">
 
     <TextView
-        android:id="@+id/rent_add_activity"
+        android:id="@+id/rent_update_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -21,17 +21,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <Spinner
-        android:id="@+id/rent_add_activity_regno_spinner"
+        android:id="@+id/rent_update_activity_regno_spinner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/style_spinner1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity"
+        app:layout_constraintTop_toBottomOf="@+id/rent_update_activity"
         ></Spinner>
 
     <TextView
-        android:id="@+id/rent_add_activity1"
+        android:id="@+id/rent_update_activity1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -40,19 +40,19 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_regno_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/rent_update_activity_regno_spinner" />
     <Spinner
 
-        android:id="@+id/rent_add_activity_cusid_spinner"
+        android:id="@+id/rent_update_activity_cusid_spinner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/style_spinner1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity1"></Spinner>
+        app:layout_constraintTop_toBottomOf="@+id/rent_update_activity1"></Spinner>
 
     <EditText
-        android:id="@+id/rent_add_activity_rentaldate"
+        android:id="@+id/rent_update_activity_rentaldate"
         android:layout_width="236dp"
         android:layout_height="43dp"
         android:layout_marginTop="20dp"
@@ -60,11 +60,11 @@
         android:hint="Ngày thuê"
         android:enabled="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_cusid_spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/rent_update_activity_cusid_spinner" />
 
     <Button
         android:textAllCaps="false"
-        android:id="@+id/rent_add_activity_rentaldate_button"
+        android:id="@+id/rent_update_activity_rentaldate_button"
         android:layout_width="98dp"
         android:layout_height="41dp"
         android:layout_marginTop="20dp"
@@ -77,10 +77,10 @@
         android:textColor="@color/text_button"
         android:textStyle="normal|bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_cusid_spinner"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/rent_update_activity_cusid_spinner"></Button>
 
     <EditText
-        android:id="@+id/rent_add_activity_returndate"
+        android:id="@+id/rent_update_activity_returndate"
         android:layout_width="236dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
@@ -88,11 +88,11 @@
         android:hint="Ngày trả"
         android:enabled="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_rentaldate" />
+        app:layout_constraintTop_toBottomOf="@+id/rent_update_activity_rentaldate" />
 
     <Button
         android:textAllCaps="false"
-        android:id="@+id/rent_add_activity_returndate_button"
+        android:id="@+id/rent_update_activity_returndate_button"
         android:layout_width="98dp"
         android:layout_height="41dp"
         android:layout_marginTop="20dp"
@@ -106,20 +106,10 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_rentaldate_button"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/rent_update_activity_rentaldate_button"></Button>
 
-    <EditText
-        android:id="@+id/rent_add_activity_fees"
-        android:layout_width="236dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Giá thuê"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_returndate_button" />
     <Button
-        android:id="@+id/rent_add_activity_fees_button"
+        android:id="@+id/rent_update_activity_fees_button"
         android:layout_width="98dp"
         android:layout_height="41dp"
         android:layout_marginTop="20dp"
@@ -134,24 +124,52 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rent_add_activity_returndate_button"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/rent_update_activity_returndate_button"></Button>
+
+    <EditText
+        android:id="@+id/rent_update_activity_fees"
+        android:layout_width="236dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Giá thuê"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rent_update_activity_returndate" />
+
     <Button
         android:textAllCaps="false"
         android:layout_width="240dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="4dp"
+
         android:textColor="@color/text_button"
         android:textSize="16sp"
         android:textStyle="bold"
         android:background="@drawable/style_button"
-        android:id="@+id/rent_add_activity_add_button"
-        android:text="Thêm"
+        android:id="@+id/rent_update_activity_update_button"
+        android:text="Cập nhật"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/rent_update_activity_delete_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:textAllCaps="false"
+        android:layout_width="240dp"
+        android:layout_height="41dp"
 
-
-
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/text_button_delete"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@drawable/style_button_delete"
+        android:id="@+id/rent_update_activity_delete_button"
+        android:text="Xóa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

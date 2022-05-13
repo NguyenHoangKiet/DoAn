@@ -62,22 +62,31 @@ public class Rent_CustomAdapter extends RecyclerView.Adapter<Rent_CustomAdapter.
         holder.rent_row_rentid.setText(String.valueOf(rent_rent_id.get(position)));
         holder.rent_row_regno.setText(String.valueOf(rent_regno.get(position)) );
         holder.rent_row_cusid.setText(String.valueOf(rent_cusid.get(position)) );
-        holder.rent_row_rentaldate.setText(String.valueOf(rent_rentaldate.get(position)) +" - ");
-        holder.rent_row_returndate.setText(String.valueOf(rent_returndate.get(position)) );
+
+        String rentaldate[] = String.valueOf(rent_rentaldate.get(position)).split("-");
+        String result_rentaldate = rentaldate[2]+"/"+rentaldate[1]+"/"+rentaldate[0] ;
+        holder.rent_row_rentaldate.setText(result_rentaldate+" - ");
+
+        String returndate[] = String.valueOf(rent_returndate.get(position)).split("-");
+        String result_returndate = returndate[2]+"/"+returndate[1]+"/"+returndate[0];
+        holder.rent_row_returndate.setText(result_returndate);
+
         holder.rent_row_fees.setText(String.valueOf(rent_fees.get(position)) + " VNĐ");
 
         //Recyclerview onClickListener
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(context, Rent_UpdateActivity.class);
-//                intent.putExtra("rent_id", String.valueOf(rent_rent_id.get(position)));
-//                intent.putExtra("regno", String.valueOf(rent_regno.get(position)));
-//                intent.putExtra("cusid", String.valueOf(rent_cusid.get(position)));
-//                intent.putExtra("rentaldate", String.valueOf(rent_rentaldate.get(position)));
-//                intent.putExtra("returndate", String.valueOf(rent_returndate.get(position)));
-//                intent.putExtra("fees", String.valueOf(rent_fees.get(position)));
-//                activity.startActivityForResult(intent, 1);
+                Intent intent = new Intent(context, Rent_UpdateActivity.class);
+                intent.putExtra("rent_id", String.valueOf(rent_rent_id.get(position)));
+                intent.putExtra("regno", String.valueOf(rent_regno.get(position)));
+                intent.putExtra("cusid", String.valueOf(rent_cusid.get(position)));
+
+                intent.putExtra("rentaldate", result_rentaldate);
+                intent.putExtra("returndate", result_returndate);
+
+                intent.putExtra("fees", String.valueOf(rent_fees.get(position)));
+                activity.startActivityForResult(intent, 1);
             }
         });
     }

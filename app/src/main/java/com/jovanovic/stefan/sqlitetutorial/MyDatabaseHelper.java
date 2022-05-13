@@ -215,7 +215,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 list.add(cursor.getString(1) + " (" +
-                        cursor.getString(3)+ ")"
+                        cursor.getString(3)+ ")_"
+                        + cursor.getString(0)
                         );//adding 2nd column data
             } while (cursor.moveToNext());
         }
@@ -315,8 +316,8 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
 
         cv.put(KEY_CARREG,carreg);
         cv.put(KEY_RENT_CUSID,rent_cusid);
-        cv.put(KEY_RENTALDATE,rentaldate);
-        cv.put(KEY_RETURNDATE,renturndate);
+        cv.put(KEY_RENTALDATE,getDateTime(rentaldate));
+        cv.put(KEY_RETURNDATE,getDateTime(renturndate));
         cv.put(KEY_FEES,fees);
 
         long result = db.update(TABLE_RENT, cv, KEY_RENTID+"=?", new String[]{row_id});
