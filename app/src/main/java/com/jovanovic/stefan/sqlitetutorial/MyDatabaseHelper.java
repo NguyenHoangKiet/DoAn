@@ -143,6 +143,11 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
                     ")";
 
     void add_customer(String cusname, String cusadd, String phone){
+
+        if (cusname.length() == 0 || cusadd.length() == 0 || phone.length() == 0){
+            Toast.makeText(context, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            return;
+        }
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 

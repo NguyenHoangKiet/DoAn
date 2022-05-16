@@ -68,6 +68,7 @@
             android:label="Add Book"
             android:parentActivityName=".MainActivity" />
         <activity
+            android:exported="true"
             android:name=".MainActivity"
             android:label="Quản Lý Thuê Xe">
             <intent-filter>
