@@ -11,7 +11,14 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp">
+
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+       >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,38 +26,24 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/car_row_carid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="1"
-                android:textColor="@color/text"
-                android:textSize="40sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.947" />
-
-            <TextView
                 android:id="@+id/car_row_regno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="Biển số xe 1"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="10dp"
+                android:text="Biển số xe : 30F-333.33"
                 android:textColor="@color/text"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/car_row_carid"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/car_row_brand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hiệu xe 1"
+                android:text="Hiệu xe : TOYOTA"
                 app:layout_constraintStart_toStartOf="@+id/car_row_regno"
                 app:layout_constraintTop_toBottomOf="@+id/car_row_regno" />
 
@@ -58,45 +51,46 @@
                 android:id="@+id/car_row_model"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mẩu xe 1"
+                android:text="Mẫu xe : CAMRY"
                 app:layout_constraintStart_toStartOf="@+id/car_row_brand"
                 app:layout_constraintTop_toBottomOf="@+id/car_row_brand" />
 
             <TextView
                 android:id="@+id/car_row_price"
-                android:layout_width="134dp"
-                android:layout_height="21dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
                 android:background="#7CCCCCCC"
                 android:gravity="center_horizontal"
-                android:text="100000 VNĐ/Ngày"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                android:text="1000000000 VNĐ/Ngày"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/car_row_model" />
 
             <TextView
                 android:id="@+id/car_row_available"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Đã cho thuê"
                 android:textColor="#F44336"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/car_row_price" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="358dp"
-                android:layout_height="187dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                android:id="@+id/imageView2"
+                android:layout_width="77dp"
+                android:layout_height="79dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/car_for_row" />
+                app:srcCompat="@drawable/ic_car" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

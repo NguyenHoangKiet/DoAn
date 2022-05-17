@@ -50,7 +50,7 @@ public class Car_UpdateActivity extends AppCompatActivity {
         //Set actionbar title after getAndSetIntentData method
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
-            ab.setTitle(regno);
+            ab.setTitle("Xe("+regno+")");
         }
 
         car_update_activity_update_button.setOnClickListener(new View.OnClickListener() {
@@ -112,8 +112,8 @@ public class Car_UpdateActivity extends AppCompatActivity {
 
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Xóa tài khoản " + regno + " ?");
-        builder.setMessage("Bạn chắc chắn muốn xóa khách hàng " + regno + " ?");
+        builder.setTitle("Xóa " + regno + " ?");
+        builder.setMessage("Bạn chắc chắn muốn xóa xe " + regno + " ?");
         builder.setPositiveButton("Đúng", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

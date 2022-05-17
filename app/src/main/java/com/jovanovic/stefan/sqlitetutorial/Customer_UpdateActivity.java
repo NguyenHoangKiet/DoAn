@@ -39,7 +39,7 @@ public class Customer_UpdateActivity extends AppCompatActivity {
         //Set actionbar title after getAndSetIntentData method
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
-            ab.setTitle("Khách hàng " + cusname);
+            ab.setTitle("Kháchhàng(" + cusname + ")");
         }
 
         customer_update_activity_update_button.setOnClickListener(new View.OnClickListener() {

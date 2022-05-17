@@ -31,16 +31,22 @@ public class Car_AddActivity extends AppCompatActivity {
         car_activity_add_radio_button_false = findViewById(R.id.car_activity_add_radio_button_false);
         car_add_button = findViewById(R.id.car_add_button);
 
+        car_activity_add_radio_button_true.setChecked(true);
+        car_price.setText("0");
+
         car_add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(Car_AddActivity.this);
 //                        Integer.valueOf(pages_input.getText().toString().trim()));
+
+                String carPrice = car_price.getText().toString().trim();
+                if (carPrice.length() == 0 ) carPrice = "0";
                 myDB.add_car(
                         car_regno.getText().toString().trim(),
                         car_brand.getText().toString().trim(),
                         car_model.getText().toString().trim(),
-                        Integer.valueOf(car_price.getText().toString().trim()),
+                        Integer.valueOf(carPrice),
                         car_activity_add_radio_button_true.isChecked()
                 );
             }

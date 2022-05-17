@@ -58,10 +58,10 @@ public class Car_CustomAdapter extends RecyclerView.Adapter<Car_CustomAdapter.My
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final Car_CustomAdapter.MyViewHolder holder, final int position) {
-        holder.car_row_carid.setText(String.valueOf(car_car_id.get(position)));
-        holder.car_row_regno.setText(String.valueOf(car_regno.get(position)) );
-        holder.car_row_brand.setText(String.valueOf(car_brand.get(position)) + " (Hãng xe)");
-        holder.car_row_model.setText(String.valueOf(car_model.get(position)) + " (Kiểu xe)");
+//        holder.car_row_carid.setText(String.valueOf(car_car_id.get(position)));
+        holder.car_row_regno.setText("Biển số xe : "+String.valueOf(car_regno.get(position)) );
+        holder.car_row_brand.setText("Hãng xe : "+String.valueOf(car_brand.get(position)));
+        holder.car_row_model.setText("Kiểu xe : " +String.valueOf(car_model.get(position)) );
         holder.car_row_price.setText(String.valueOf(car_price.get(position)) + " VNĐ/Ngày");
 
         if (String.valueOf(car_available.get(position)).equals("1")){
@@ -106,7 +106,7 @@ public class Car_CustomAdapter extends RecyclerView.Adapter<Car_CustomAdapter.My
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            car_row_carid = itemView.findViewById(R.id.car_row_carid);
+//            car_row_carid = itemView.findViewById(R.id.car_row_carid);
             car_row_regno = itemView.findViewById(R.id.car_row_regno);
             car_row_brand = itemView.findViewById(R.id.car_row_brand);
             car_row_model = itemView.findViewById(R.id.car_row_model);

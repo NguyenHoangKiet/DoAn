@@ -375,6 +375,10 @@ class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
+        if (regno.length() == 0 || brand.length() == 0 || model.length() == 0 ){
+            Toast.makeText(context, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+            return;
+        }
         cv.put(KEY_REGNO, regno);
         cv.put(KEY_BRAND, brand);
         cv.put(KEY_MODEL, model);

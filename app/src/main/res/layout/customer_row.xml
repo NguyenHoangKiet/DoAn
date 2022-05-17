@@ -17,8 +17,8 @@
         app:cardElevation="10dp"
         app:cardMaxElevation="12dp"
         app:cardPreventCornerOverlap="true"
-
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,6 +28,7 @@
             >
 
             <TextView
+
                 android:id="@+id/customer_row_cusname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -35,7 +36,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="10dp"
                 android:text="Tên khách hàng : Nguyen Hoang Kiet"
-                android:textColor="#000"
+                android:textColor="@color/text"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
