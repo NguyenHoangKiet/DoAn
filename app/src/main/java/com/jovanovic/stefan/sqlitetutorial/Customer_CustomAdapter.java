@@ -48,10 +48,10 @@ public class Customer_CustomAdapter extends RecyclerView.Adapter<Customer_Custom
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final Customer_CustomAdapter.MyViewHolder holder, final int position) {
-        holder.customer_row_cusid.setText(String.valueOf(customer_cusid.get(position)));
-        holder.customer_row_cusname.setText(String.valueOf(customer_cusname.get(position)));
-        holder.customer_row_cusadd.setText(String.valueOf(customer_cusadd.get(position)));
-        holder.customer_row_phone.setText(String.valueOf(customer_phone.get(position)));
+//        holder.customer_row_cusid.setText(String.valueOf(customer_cusid.get(position)));
+        holder.customer_row_cusname.setText("Tên khách hàng : " + String.valueOf(customer_cusname.get(position)));
+        holder.customer_row_cusadd.setText("Địa chỉ : " + String.valueOf(customer_cusadd.get(position)));
+        holder.customer_row_phone.setText("Số điện thoại : " + String.valueOf(customer_phone.get(position)));
         //Recyclerview onClickListener
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +83,7 @@ public class Customer_CustomAdapter extends RecyclerView.Adapter<Customer_Custom
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            customer_row_cusid = itemView.findViewById(R.id.customer_row_cusid);
+//            customer_row_cusid = itemView.findViewById(R.id.customer_row_cusid);
             customer_row_cusname = itemView.findViewById(R.id.customer_row_cusname);
             customer_row_cusadd = itemView.findViewById(R.id.customer_row_cusadd);
             customer_row_phone = itemView.findViewById(R.id.customer_row_phone);
