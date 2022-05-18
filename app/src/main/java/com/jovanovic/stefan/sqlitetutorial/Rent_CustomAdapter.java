@@ -59,19 +59,19 @@ public class Rent_CustomAdapter extends RecyclerView.Adapter<Rent_CustomAdapter.
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final Rent_CustomAdapter.MyViewHolder holder, final int position) {
-        holder.rent_row_rentid.setText(String.valueOf(rent_rent_id.get(position)));
-        holder.rent_row_regno.setText(String.valueOf(rent_regno.get(position)) );
-        holder.rent_row_cusid.setText(String.valueOf(rent_cusid.get(position)) );
+//        holder.rent_row_rentid.setText(String.valueOf(rent_rent_id.get(position)));
+        holder.rent_row_regno.setText("Biển số xe : " + String.valueOf(rent_regno.get(position)) );
+        holder.rent_row_cusid.setText("Khách hàng : " + String.valueOf(rent_cusid.get(position)) );
 
         String rentaldate[] = String.valueOf(rent_rentaldate.get(position)).split("-");
         String result_rentaldate = rentaldate[2]+"/"+rentaldate[1]+"/"+rentaldate[0] ;
-        holder.rent_row_rentaldate.setText(result_rentaldate+" - ");
+        holder.rent_row_rentaldate.setText("Từ ngày : " + result_rentaldate+" - ");
 
         String returndate[] = String.valueOf(rent_returndate.get(position)).split("-");
         String result_returndate = returndate[2]+"/"+returndate[1]+"/"+returndate[0];
         holder.rent_row_returndate.setText(result_returndate);
 
-        holder.rent_row_fees.setText(String.valueOf(rent_fees.get(position)) + " VNĐ");
+        holder.rent_row_fees.setText("Chi phí : " + String.valueOf(rent_fees.get(position)) + " VNĐ");
 
         //Recyclerview onClickListener
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +99,7 @@ public class Rent_CustomAdapter extends RecyclerView.Adapter<Rent_CustomAdapter.
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         LinearLayout mainLayout;
-        TextView rent_row_rentid;
+//        TextView rent_row_rentid;
         TextView rent_row_regno;
         TextView rent_row_cusid;
         TextView rent_row_rentaldate;
@@ -108,7 +108,7 @@ public class Rent_CustomAdapter extends RecyclerView.Adapter<Rent_CustomAdapter.
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            rent_row_rentid = itemView.findViewById(R.id.rent_row_rentid);
+//            rent_row_rentid = itemView.findViewById(R.id.rent_row_rentid);
             rent_row_regno = itemView.findViewById(R.id.rent_row_regno);
             rent_row_cusid = itemView.findViewById(R.id.rent_row_cusid);
             rent_row_rentaldate = itemView.findViewById(R.id.rent_row_rentaldate);

@@ -42,16 +42,22 @@
         <entry key="..\:/Users/Hp/Downloads/DoAnNhapMonUngDungDiDong-master/DoAn/app/src/main/res/layout/rent_row.xml" value="0.5" />
         <entry key="..\:/Users/Hp/Downloads/DoAnNhapMonUngDungDiDong-master/DoAn/app/src/main/res/menu/my_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/drawable/style_button.xml" value="0.1" />
+        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/drawable/style_spinner1.xml" value="0.143" />
         <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_add.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_car_add.xml" value="0.1" />
+        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_car_add.xml" value="0.5" />
         <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_car_main.xml" value="0.25" />
         <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_car_update.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_customer_add.xml" value="0.1" />
         <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_customer_main.xml" value="0.33" />
         <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_customer_update.xml" value="0.1" />
-        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_rent_update.xml" value="0.1" />
+        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_main.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_menu_main.xml" value="0.16893115942028986" />
+        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_rent_add.xml" value="0.25" />
+        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_rent_main.xml" value="0.22" />
+        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/activity_rent_update.xml" value="0.33" />
         <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/car_row.xml" value="0.33" />
         <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/customer_row.xml" value="0.33" />
+        <entry key="..\:/Users/Hp/Downloads/DoAn_NewClone/DoAn/app/src/main/res/layout/rent_row.xml" value="0.33" />
         <entry key="..\:/Users/Hp/Downloads/SQLite_Android-Complete_Tutorial-master/SQLite_Android-Complete_Tutorial-master/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1915" />
         <entry key="..\:/Users/Hp/Downloads/SQLite_Android-Complete_Tutorial-master/SQLite_Android-Complete_Tutorial-master/app/src/main/res/drawable/ic_add.xml" value="0.1915" />
         <entry key="..\:/Users/Hp/Downloads/SQLite_Android-Complete_Tutorial-master/SQLite_Android-Complete_Tutorial-master/app/src/main/res/drawable/ic_delete.xml" value="0.1915" />
@@ -66,7 +72,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

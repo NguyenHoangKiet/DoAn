@@ -11,84 +11,86 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp">
+
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp">
 
-            <TextView
-                android:id="@+id/rent_row_rentid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:text="1"
-                android:textColor="#000"
-                android:textSize="40sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="77dp"
+                android:layout_height="79dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.137" />
+                app:srcCompat="@drawable/ic_rent" />
 
             <TextView
                 android:id="@+id/rent_row_regno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="30F-333.33 (Biển số xe)"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Biển số xe : 30F-333.33"
                 android:textColor="#000"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/rent_row_rentid"
-                app:layout_constraintTop_toTopOf="@+id/rent_row_rentid" />
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/rent_row_cusid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="Nguyễn Hoàng Hoàng Kiệt (0961323073)"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Khách hàng : Nguyen Hoang Kiet"
                 android:textColor="#000"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/rent_row_rentid"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toBottomOf="@+id/rent_row_regno" />
 
             <TextView
                 android:id="@+id/rent_row_rentaldate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="43dp"
-                android:layout_marginLeft="43dp"
-                android:layout_marginTop="10dp"
-                android:text="11/11/2000"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Từ ngày : 11/11/2000"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toBottomOf="@+id/rent_row_cusid" />
 
             <TextView
                 android:id="@+id/rent_row_returndate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="11/11/2000"
                 app:layout_constraintStart_toEndOf="@+id/rent_row_rentaldate"
                 app:layout_constraintTop_toBottomOf="@+id/rent_row_cusid" />
 
             <TextView
                 android:id="@+id/rent_row_fees"
-                android:layout_width="145dp"
+                android:layout_width="wrap_content"
                 android:layout_height="27dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="1000000000 VND"
-                app:layout_constraintStart_toEndOf="@+id/rent_row_returndate"
-                app:layout_constraintTop_toBottomOf="@+id/rent_row_cusid" />
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Chi phí : 1000000000 VND"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/rent_row_rentaldate" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -181,7 +181,7 @@ public class Rent_UpdateActivity extends AppCompatActivity implements AdapterVie
         //Set actionbar title after getAndSetIntentData method
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
-            ab.setTitle(rent_id);
+            ab.setTitle("PhiếuThuêXe("+rent_id+")");
         }
 
         rent_update_activity_fees_button.setOnClickListener(new View.OnClickListener() {

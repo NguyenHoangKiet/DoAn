@@ -28,48 +28,19 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    CardView accountCard;
-    CardView customerCard;
-    CardView carCard;
-    CardView rentCard;
+    Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        accountCard = findViewById(R.id.accountCard);
-        customerCard = findViewById(R.id.customCard);
-        carCard = findViewById(R.id.carCard);
-        rentCard = findViewById(R.id.rentCard);
+        button = findViewById(R.id.button);
 
-        accountCard.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Account_MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        customerCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Customer_MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        carCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Car_MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        rentCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Rent_MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, Menu_MainActivity.class);
                 startActivity(intent);
             }
         });
